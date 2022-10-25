@@ -1,0 +1,38 @@
+{
+  "name": "weatherapp-frontend",
+  "version": "0.0.1",
+  "description": "Weatherapp exercise frontend",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrako/weatherapp.git"
+  },
+  "author": "Marko Klemetti <marko.klemetti@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
+    "lint": "node_modules/.bin/eslint --ext .js --ext .jsx ."
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native-geolocation-service": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^8.2.3",
+    "babel-preset-es2016": "^6.22.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.7",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3"
+  }
+}

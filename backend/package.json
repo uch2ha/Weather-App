@@ -1,0 +1,31 @@
+{
+  "name": "weatherapp-backend",
+  "version": "0.0.1",
+  "description": "Weatherapp exercise backend",
+  "author": "Marko Klemetti <marko.klemetti@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "DEBUG=weathermap ./node_modules/.bin/nodemon src/index.js",
+    "lint": "eslint src/*.js"
+  },
+  "dependencies": {
+    "debug": "^4.3.3",
+    "kcors": "^2.2.2",
+    "koa": "^2.13.4",
+    "koa-json": "^2.0.2",
+    "koa-router": "^10.1.1",
+    "node-fetch": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^8.6.0",
+    "eslint-config-standard": "^15.0.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "nodemon": "^2.0.15"
+  },
+  "type": "module"
+}
