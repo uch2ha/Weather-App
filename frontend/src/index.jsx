@@ -53,7 +53,7 @@ class Weather extends React.Component {
         return (
             <div>
                 <div className='icon'>
-                    <h2>Curent weather zxc{location}</h2>
+                    <h2>Curent weather{location}</h2>
                     {icon && (
                         <img
                             width={200}
