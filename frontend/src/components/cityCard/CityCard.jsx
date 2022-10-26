@@ -9,6 +9,8 @@ const CityCard = ({ city, main, weather, deleteCity, id }) => {
     return (((F - 32) * 5) / 9).toFixed(0);
   };
 
+  const icon = '02';
+
   return (
     <div className='card-container'>
       <div
@@ -27,19 +29,13 @@ const CityCard = ({ city, main, weather, deleteCity, id }) => {
           <p className='temperature'>{main.temp_min}° C</p>
         )}
 
-        {/* {isDayData ? (
-          <>
-            <div className='img-container'>
-              <img className='img' src={IMAGES[day?.Icon - 1]} />
-            </div>
-          </>
-        ) : (
-          <>
-            <div className='img-container'>
-              <img className='img' src={IMAGES[night?.Icon - 1]} />
-            </div>
-          </>
-        )} */}
+        <div className='img-container'>
+          <img
+            className='img'
+            alt='weather_icon'
+            src={require(`../../public/img/${icon}.svg`)}
+          />
+        </div>
 
         <p className='description'>{weather.description}</p>
       </div>
