@@ -1,0 +1,120 @@
+.card-container {
+  position: relative;
+  margin: 1rem;
+}
+
+.flipped-container:active {
+  transform: rotateY(180deg);
+}
+
+.flipped-container {
+  min-width: 19rem;
+  max-width: 19rem;
+  min-height: 35rem;
+  max-height: 35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+}
+
+.day {
+  background: rgb(255, 164, 88);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 164, 88, 1) 15%,
+    rgba(255, 241, 153, 1) 86%
+  );
+}
+
+.day:hover {
+  box-shadow: 0px 0px 7.5px 4px rgb(255, 201, 157);
+}
+
+.night:hover {
+  box-shadow: 0px 0px 7.5px 4px rgb(2, 0, 36);
+}
+
+.night {
+  color: white;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 1) 15%,
+    rgba(1, 148, 189, 1) 86%
+  );
+}
+
+.city-name {
+  font-size: 3rem;
+  margin: 1rem;
+  margin-left: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.day-night-title {
+  font-size: 2rem;
+  margin: 1rem;
+  margin-left: 1.5rem;
+  font-weight: 600;
+}
+
+.temperature {
+  font-size: 2rem;
+  margin: 1rem;
+  margin-left: 1.5rem;
+  font-weight: 600;
+}
+.img-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.img {
+  margin-left: 0.75rem;
+  width: 70%;
+  height: 70%;
+}
+
+.description {
+  font-size: 2rem;
+  margin: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  font-weight: 600;
+  white-space: normal;
+  min-height: 8rem;
+}
+
+.btn-delete {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 8.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.btn-delete:hover {
+  color: red;
+  border: 0.1rem solid white;
+  border-radius: 10px;
+  bottom: 0.65rem;
+  right: 8.4rem;
+}
+
+.btn-div {
+  margin: 0;
+  padding: 0;
+  height: 1em;
+  width: 1em;
+}

@@ -1,0 +1,26 @@
+.scrollable-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-top: 0.5rem;
+}
+
+.cities-cards-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: scroll;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+.arrow-btn {
+  padding: 0.3rem;
+  cursor: pointer;
+  font-size: 3.5rem;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
