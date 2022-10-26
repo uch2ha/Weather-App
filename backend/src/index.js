@@ -46,13 +46,6 @@ const fetchForecast = async (requestCity) => {
   return response ? response.json() : {};
 };
 
-// router.get('/api/test', async (ctx) => {
-//   const { city } = ctx.request.query;
-//   const weatherData = await fetchWeather(city);
-//   ctx.type = 'application/json; charset=utf-8';
-//   ctx.body = weatherData.weather ? weatherData : {};
-// });
-
 router.get('/api/weatherbycity', async (ctx) => {
   const { city } = ctx.request.query;
   const weatherData = await fetchWeather(city);
