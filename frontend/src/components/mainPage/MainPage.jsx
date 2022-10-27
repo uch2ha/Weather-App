@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { MdMyLocation } from 'react-icons/md';
 import ErrorMessages from '../errorMessages/ErrorMessages';
 import ScrollableCityCards from '../scrollableCityCards/ScrollableCityCards';
 import './MainPage.css';
 
 const MainPage = () => {
-  const [data, setData] = useState([]);
+  const [weatherData, setWeatherData] = useState([]);
   const [cityName, setCityName] = useState('');
   const [otherError, setOtherError] = useState(false);
   const [duplicateCitiesError, setDuplicateCitiesError] = useState(false);
 
-  // fetch weather data from backend
+  // fetch weather data from backend by city name
   const getWeatherDataFromAPIbyCityname = (city) => {
     return fetch(`http://localhost:9000/api/weatherbycity?city=${city}`)
       .then((response) => response.json())
@@ -20,41 +21,76 @@ const MainPage = () => {
       .catch(() => setOtherError(true));
   };
 
-  // update weather data
-  const setCityWeatherData = async () => {
+  // fetch weather data from backend by location
+  const getWeatherDataFromAPIbyLocation = (lon, lat) => {
+    return fetch(
+      `http://localhost:9000/api/weatherbycoordinates?lon=${lon}&lat=${lat}`
+    )
+      .then((response) => response.json())
+      .then((responseData) => {
+        setOtherError(false);
+        return responseData;
+      })
+      .catch(() => setOtherError(true));
+  };
+
+  // update weather data with new city information
+  const addCityInfoToWeatherData = (weatherInfo) => {
+    setWeatherData((prev) => {
+      // checking to avoid application errors
+      if (prev === undefined || prev === null) {
+        return [weatherInfo];
+      }
+      return [...prev, weatherInfo];
+    });
+  };
+
+  // checks for the presence of the city in the weather data
+  const checkWeatherDataAboutCityPresence = (city) => {
     let check_for_duplicate = false;
     setDuplicateCitiesError(false);
-
-    // checks if a city with the same name has already been added
-    data?.map((city) => {
-      if (city.name.toLowerCase() === cityName) {
+    weatherData?.forEach((item) => {
+      if (item.name.toLowerCase() === city.toLowerCase()) {
         setDuplicateCitiesError(true);
         check_for_duplicate = true;
         setCityName('');
       }
     });
+    return check_for_duplicate;
+  };
 
-    if (!check_for_duplicate) {
-      let cityData = '';
-
-      cityData = await getWeatherDataFromAPIbyCityname(cityName);
-
-      if (cityData) {
-        setData((prev) => {
-          // checking to avoid application errors
-          if (prev === undefined || prev === null) {
-            return [cityData];
-          }
-          return [...prev, cityData];
-        });
-        setCityName('');
-      }
+  // trying to add new data by city name
+  // if it is not already present in the weather data
+  const setCityWeatherDataByCityName = async (city) => {
+    if (!checkWeatherDataAboutCityPresence(city)) {
+      const cityData = await getWeatherDataFromAPIbyCityname(city);
+      await addCityInfoToWeatherData(cityData);
+      setCityName('');
     }
   };
 
+  // trying to add new data by city location
+  // if it is not already present in the weather data
+  const setCityWeatherDataByCityLocation = () => {
+    // get my geolocation
+    navigator.geolocation.getCurrentPosition((position) => {
+      const lon = position.coords.longitude;
+      const lat = position.coords.latitude;
+
+      // fetch weather data from API and add it to the weather data
+      // if it is not already present in the weather data
+      getWeatherDataFromAPIbyLocation(lon, lat).then((cityData) => {
+        console.log(cityData);
+        if (!checkWeatherDataAboutCityPresence(cityData.name)) {
+          addCityInfoToWeatherData(cityData);
+        }
+      });
+    });
+  };
+
   const deleteCityFromData = (id) => {
-    const newCityList = data.filter((city) => city.id !== id);
-    setData(newCityList);
+    const newCityList = weatherData.filter((city) => city.id !== id);
+    setWeatherData(newCityList);
   };
 
   return (
@@ -69,18 +105,31 @@ const MainPage = () => {
         <input
           className='input-field'
           value={cityName}
-          onChange={(e) => setCityName(e.target.value.toLowerCase())}
+          onChange={(e) => setCityName(e.target.value)}
           placeholder='Enter the city name'
-          onKeyDown={(e) => e.key === 'Enter' && setCityWeatherData()}
+          onKeyDown={(e) =>
+            e.key === 'Enter' && setCityWeatherDataByCityName(cityName)
+          }
         />
-        <button className='btn-search' onClick={() => setCityWeatherData()}>
-          Search
-        </button>
+        <div className='btn-container'>
+          <button
+            className='btn-search'
+            onClick={() => setCityWeatherDataByCityName(cityName)}
+          >
+            Search
+          </button>
+          <button
+            className='btn-location'
+            onClick={() => setCityWeatherDataByCityLocation()}
+          >
+            <MdMyLocation size={30} />
+          </button>
+        </div>
       </div>
       {/* scrollable city cards component */}
-      {data?.length > 0 && (
+      {weatherData?.length > 0 && (
         <ScrollableCityCards
-          data={data}
+          data={weatherData}
           deleteCityFromData={deleteCityFromData}
         />
       )}
