@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import './CityCard.css';
 
-const CityCard = ({ city, main, weather, wind, deleteCity, id }) => {
+const CityCard = ({
+  city,
+  main,
+  weather,
+  wind,
+  visibility,
+  deleteCity,
+  id,
+}) => {
   const [isMoreInfo, setIsMoreInfo] = useState(true);
 
   const fromFtoC = (F) => {
@@ -25,8 +33,8 @@ const CityCard = ({ city, main, weather, wind, deleteCity, id }) => {
         <div className='info-container'>
           {isMoreInfo ? (
             <>
-              <p className='info-item'>{main.temp.toFixed(0)}° C</p>
-              <p className='info-item'>{main.pressure}° C</p>
+              <p className='info-item first'>{main.temp.toFixed(0)}° C</p>
+              <p className='info-item'>{main.pressure} Pa</p>
 
               <div className='img-container'>
                 <img
@@ -40,11 +48,28 @@ const CityCard = ({ city, main, weather, wind, deleteCity, id }) => {
             </>
           ) : (
             <>
-              <p className='info-item'>Min {main.temp_min.toFixed(0)}° C</p>
-              <p className='info-item'>Max {main.temp_max.toFixed(0)}° C</p>
-              <p className='info-item'>Humidity {main.humidity}</p>
-              <p className='info-item last'>Wind {wind.speed} m/s</p>
+              <p className='info-item-back'>
+                Min {main.temp_min.toFixed(0)}° C
+              </p>
+              <p className='info-item-back'>
+                Max {main.temp_max.toFixed(0)}° C
+              </p>
+              <p className='info-item-back'>
+                Feels like {main.feels_like.toFixed(0)}° C
+              </p>
+              <p className='info-item-back'>Humidity {main.humidity}</p>
+              <p className='info-item-back'>
+                Visibility {visibility / 1000}/10km
+              </p>
+              <p className='info-item-back last'>Wind {wind.speed} m/s</p>
             </>
+          )}
+        </div>
+        <div className='help-text-container'>
+          {isMoreInfo ? (
+            <p className='help-text-front'>Click for more information</p>
+          ) : (
+            <p className='help-text-back'>Click for less information</p>
           )}
         </div>
       </div>

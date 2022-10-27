@@ -26,6 +26,7 @@ const ScrollableCityCards = ({ data, deleteCityFromData }) => {
             main={city?.main}
             weather={city?.weather}
             wind={city?.wind}
+            visibility={city?.visibility}
             deleteCity={deleteCityFromData}
             id={city?.id}
           />
