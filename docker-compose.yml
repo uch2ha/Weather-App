@@ -1,28 +1,28 @@
 version: '3.8'
 
 services:
-    backend:
-        build:
-            dockerfile: Dockerfile
-            context: './backend'
-        ports:
-            - '9000:9000'
-        volumes:
-            - ./backend:/app
-            - /app/node_modules
-        environment:
-            APPID: '22313e921b28d2559ab79166c0f9b6d2'
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./backend:/app
+      - backend/app/node_modules
+    environment:
+      APPID: '22313e921b28d2559ab79166c0f9b6d2'
 
-    frontend:
-        build:
-            dockerfile: Dockerfile
-            context: ./frontend
-        ports:
-            - '8000:8000'
-        volumes:
-            - ./frontend:/app
-            - /app/node_modules
-        environment:
-            - NODE_ENV=development
-            - CHOKIDAR_USEPOLLING=true
-            - WATCHPACK_POLLING=true
+  frontend:
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./frontend:/app
+      - frontend/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
