@@ -1,17 +1,14 @@
 import React from 'react';
 import './ErrorMessages.css';
 
-const ErrorMessages = ({
-  otherError,
-  locationKeyError,
-  duplicateCitiesError,
-}) => {
+const ErrorMessages = ({ otherError, duplicateCitiesError }) => {
   return (
     <>
-      {otherError && <div className='error-message'>ERROR</div>}
-      {locationKeyError && <div className='error-message'>city not found</div>}
+      {otherError && (
+        <div className='error-message'>City not found or connection lost</div>
+      )}
       {duplicateCitiesError && (
-        <div className='error-message'>this city is already added</div>
+        <div className='error-message'>This city is already added</div>
       )}
     </>
   );
