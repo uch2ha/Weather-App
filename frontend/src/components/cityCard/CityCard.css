@@ -14,7 +14,6 @@
   max-height: 35rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   border-radius: 15px;
   border: none;
   cursor: pointer;
@@ -22,7 +21,7 @@
   transition: transform 0.5s ease-out;
 }
 
-.day {
+.front {
   background: rgb(255, 164, 88);
   background: linear-gradient(
     0deg,
@@ -31,15 +30,11 @@
   );
 }
 
-.day:hover {
+.front:hover {
   box-shadow: 0px 0px 7.5px 4px rgb(255, 201, 157);
 }
 
-.night:hover {
-  box-shadow: 0px 0px 7.5px 4px rgb(2, 0, 36);
-}
-
-.night {
+.back {
   color: white;
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -48,25 +43,30 @@
     rgba(1, 148, 189, 1) 86%
   );
 }
+.back:hover {
+  box-shadow: 0px 0px 7.5px 4px rgb(2, 0, 36);
+}
 
-.city-name {
+.city-name p {
   font-size: 3rem;
-  margin: 1rem;
+  /* margin: 1rem; */
+  margin: 0rem;
   margin-left: 1.5rem;
   text-transform: capitalize;
   font-weight: 700;
 }
 
-.day-night-title {
-  font-size: 2rem;
-  margin: 1rem;
-  margin-left: 1.5rem;
-  font-weight: 600;
+.info-container {
+  height: 32rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.temperature {
+.info-item {
   font-size: 2rem;
-  margin: 1rem;
+  /* margin: 1rem; */
+  margin: 0rem;
   margin-left: 1.5rem;
   font-weight: 600;
 }
@@ -77,19 +77,24 @@
 }
 
 .img {
-  margin-left: 0.75rem;
-  width: 70%;
-  height: 70%;
+  margin-left: 1.5rem;
+  width: 40%;
+  height: 40%;
 }
 
 .description {
   font-size: 2rem;
-  margin: 1rem;
+  /* margin: 1rem; */
+  margin: 0rem;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   font-weight: 600;
   white-space: normal;
   min-height: 8rem;
+}
+
+.last {
+  padding-bottom: 1.2rem;
 }
 
 .btn-delete {

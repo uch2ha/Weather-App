@@ -4,7 +4,51 @@ import ScrollableCityCards from '../scrollableCityCards/ScrollableCityCards';
 import './MainPage.css';
 
 const MainPage = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([
+    {
+      coord: {
+        lon: 24.9355,
+        lat: 60.1695,
+      },
+      weather: [
+        {
+          id: 804,
+          main: 'Clouds',
+          description: 'overcast clouds',
+          icon: '04d',
+        },
+      ],
+      base: 'stations',
+      main: {
+        temp: 7.14,
+        feels_like: 4.43,
+        temp_min: 5.8,
+        temp_max: 7.8,
+        pressure: 1017,
+        humidity: 89,
+      },
+      visibility: 10000,
+      wind: {
+        speed: 4.12,
+        deg: 250,
+      },
+      clouds: {
+        all: 100,
+      },
+      dt: 1666860243,
+      sys: {
+        type: 2,
+        id: 2011913,
+        country: 'FI',
+        sunrise: 1666848569,
+        sunset: 1666881514,
+      },
+      timezone: 10800,
+      id: 658225,
+      name: 'Helsinki',
+      cod: 200,
+    },
+  ]);
   const [cityName, setCityName] = useState('');
   const [locationKeyError, setLocationKeyError] = useState(false);
   const [otherError, setOtherError] = useState(false);
