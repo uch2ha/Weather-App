@@ -57,9 +57,9 @@ const CityCard = ({
               <p className='info-item-back'>
                 Feels like {main.feels_like.toFixed(0)}° C
               </p>
-              <p className='info-item-back'>Humidity {main.humidity}</p>
+              <p className='info-item-back'>Humidity {main.humidity}%</p>
               <p className='info-item-back'>
-                Visibility {visibility / 1000}/10km
+                Visibility {visibility / 1000}/10 km
               </p>
               <p className='info-item-back last'>Wind {wind.speed} m/s</p>
             </>
