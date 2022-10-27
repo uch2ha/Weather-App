@@ -11,27 +11,24 @@ const CityCard = ({
   deleteCity,
   id,
 }) => {
-  const [isMoreInfo, setIsMoreInfo] = useState(true);
-
-  const fromFtoC = (F) => {
-    return (((F - 32) * 5) / 9).toFixed(0);
-  };
-
-  const icon = '02';
+  //useState for card flip
+  const [isFrontSide, setIsFrontSide] = useState(true);
 
   return (
     <div className='card-container'>
+      {/* card flip container */}
       <div
-        className={['flipped-container', isMoreInfo ? 'front' : 'back'].join(
+        className={['flipped-container', isFrontSide ? 'front' : 'back'].join(
           ' '
         )}
-        onClick={() => setIsMoreInfo((prev) => !prev)}
+        onClick={() => setIsFrontSide((prev) => !prev)}
       >
         <div className='city-name'>
           <p>{city}</p>
         </div>
         <div className='info-container'>
-          {isMoreInfo ? (
+          {isFrontSide ? (
+            // front side of card
             <>
               <p className='info-item first'>{main.temp.toFixed(0)}° C</p>
               <p className='info-item'>{main.pressure} Pa</p>
@@ -40,13 +37,17 @@ const CityCard = ({
                 <img
                   className='img'
                   alt='weather_icon'
-                  src={require(`../../public/img/${icon}.svg`)}
+                  src={require(`../../public/img/${weather[0].icon.slice(
+                    0,
+                    2
+                  )}.svg`)}
                 />
               </div>
 
               <p className='description'>{weather[0].description}</p>
             </>
           ) : (
+            // back side of card with more information
             <>
               <p className='info-item-back'>
                 Min {main.temp_min.toFixed(0)}° C
@@ -65,14 +66,16 @@ const CityCard = ({
             </>
           )}
         </div>
+        {/* help text on the right side of the card */}
         <div className='help-text-container'>
-          {isMoreInfo ? (
+          {isFrontSide ? (
             <p className='help-text-front'>Click for more information</p>
           ) : (
             <p className='help-text-back'>Click for less information</p>
           )}
         </div>
       </div>
+      {/* btn for delete the city */}
       <button className='btn-delete' onClick={() => deleteCity(id)}>
         <div className='btn-div'>
           <MdClose color='white' />

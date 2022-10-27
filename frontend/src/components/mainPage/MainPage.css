@@ -16,7 +16,6 @@
 .search-bar {
   display: flex;
   flex-direction: row;
-  /* margin-bottom: 15rem; */
 }
 
 .input-field {

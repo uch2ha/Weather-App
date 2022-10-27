@@ -5,11 +5,13 @@ import CityCard from '../cityCard/CityCard';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 const ScrollableCityCards = ({ data, deleteCityFromData }) => {
+  // fn for scroll to left
   const slideLeft = () => {
     let slider = document.getElementById('scrollable');
     slider.scrollLeft = slider.scrollLeft - 400;
   };
 
+  // fn for scroll to right
   const slideRight = () => {
     let slider = document.getElementById('scrollable');
     slider.scrollLeft = slider.scrollLeft + 400;
