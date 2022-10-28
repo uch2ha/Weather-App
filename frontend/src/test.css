@@ -1,7 +1,0 @@
-/* fix scalability problem */
-/* When the screen is less than a height of 710px, the info not visible properly in the app */
-@media screen and (max-height: 710px) {
-  .main-container {
-    height: 100%;
-  }
-}

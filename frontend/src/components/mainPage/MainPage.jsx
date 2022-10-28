@@ -5,54 +5,10 @@ import ScrollableCityCards from '../scrollableCityCards/ScrollableCityCards';
 import './MainPage.css';
 
 const MainPage = () => {
-  const [weatherData, setWeatherData] = useState([
-    {
-      coord: {
-        lon: 24.9355,
-        lat: 60.1695,
-      },
-      weather: [
-        {
-          id: 300,
-          main: 'Drizzle',
-          description: 'light intensity drizzle',
-          icon: '09n',
-        },
-      ],
-      base: 'stations',
-      main: {
-        temp: 11.29,
-        feels_like: 10.75,
-        temp_min: 10.54,
-        temp_max: 11.69,
-        pressure: 1011,
-        humidity: 87,
-      },
-      visibility: 7000,
-      wind: {
-        speed: 3.6,
-        deg: 220,
-      },
-      clouds: {
-        all: 75,
-      },
-      dt: 1666970701,
-      sys: {
-        type: 2,
-        id: 2011913,
-        country: 'FI',
-        sunrise: 1666935124,
-        sunset: 1666967750,
-      },
-      timezone: 10800,
-      id: 658225,
-      name: 'Helsinki',
-      cod: 200,
-    },
-  ]);
+  const [weatherData, setWeatherData] = useState([]);
   const [cityName, setCityName] = useState('');
-  const [otherError, setOtherError] = useState(true);
-  const [duplicateCitiesError, setDuplicateCitiesError] = useState(true);
+  const [otherError, setOtherError] = useState(false);
+  const [duplicateCitiesError, setDuplicateCitiesError] = useState(false);
   let preventManyTimeCallLocationFn = 0; // don't let u call fn "setCityWeatherDataByCityLocation()" more than 1 time per fetch
 
   console.log(weatherData);

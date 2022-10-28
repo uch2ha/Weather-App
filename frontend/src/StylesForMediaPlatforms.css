@@ -1,0 +1,31 @@
+/* fix scalability problem */
+/* When the screen is less than a height of 715px, the info not visible properly in the app */
+@media screen and (max-height: 715px) {
+  .main-container {
+    height: 100%;
+    min-height: 100vh;
+  }
+}
+
+/* Styles For Media Platforms */
+/* MEDIA PLATFORMS (SMALL) */
+@media screen and (max-width: 600px) {
+  .arrow-btn {
+    display: none;
+  }
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-container {
+    flex-direction: row-reverse;
+  }
+  .input-field {
+    margin-bottom: 0.5rem;
+  }
+
+  .error-message {
+    margin-bottom: 0;
+  }
+}
