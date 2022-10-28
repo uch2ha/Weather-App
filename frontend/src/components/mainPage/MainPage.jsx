@@ -46,7 +46,7 @@ const MainPage = () => {
   };
 
   // checks for the presence of the city in the weather data
-  const checkWeatherDataAboutCityPresence = (city) => {
+  const checkWeatherDataAboutCityDuplicates = (city) => {
     let check_for_duplicate = false;
     setDuplicateCitiesError(false);
     weatherData?.forEach((item) => {
@@ -62,7 +62,7 @@ const MainPage = () => {
   // trying to add new data by city name
   // if it is not already present in the weather data
   const setCityWeatherDataByCityName = async (city) => {
-    if (!checkWeatherDataAboutCityPresence(city)) {
+    if (!checkWeatherDataAboutCityDuplicates(city)) {
       const cityData = await getWeatherDataFromAPIbyCityname(city);
       await addCityInfoToWeatherData(cityData);
       setCityName('');
@@ -80,8 +80,7 @@ const MainPage = () => {
       // fetch weather data from API and add it to the weather data
       // if it is not already present in the weather data
       getWeatherDataFromAPIbyLocation(lon, lat).then((cityData) => {
-        console.log(cityData);
-        if (!checkWeatherDataAboutCityPresence(cityData.name)) {
+        if (!checkWeatherDataAboutCityDuplicates(cityData.name)) {
           addCityInfoToWeatherData(cityData);
         }
       });
