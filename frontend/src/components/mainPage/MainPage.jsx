@@ -9,9 +9,31 @@ const MainPage = () => {
   const [cityName, setCityName] = useState('');
   const [otherError, setOtherError] = useState(false);
   const [duplicateCitiesError, setDuplicateCitiesError] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
   let preventManyTimeCallLocationFn = 0; // don't let u call fn "setCityWeatherDataByCityLocation()" more than 1 time per fetch
 
-  console.log(weatherData);
+  // LocalStorage functionality
+  // when u load the page the first time, check local storage  for saved items
+  useEffect(() => {
+    console.log(1, 'get');
+    if (firstLoad) {
+      const item = localStorage.getItem('weather_data_ds_eficode');
+      if (item !== undefined) {
+        setWeatherData(JSON.parse(item));
+      }
+      setFirstLoad(false);
+    }
+  }, []);
+
+  // every time when an item is removed or added to weatherData, updates local storage
+  useEffect(() => {
+    if (!firstLoad) {
+      localStorage.setItem(
+        'weather_data_ds_eficode',
+        JSON.stringify(weatherData)
+      );
+    }
+  }, [weatherData]);
 
   // fetch weather data from backend by city name
   const getWeatherDataFromAPIbyCityname = (city) => {
@@ -94,7 +116,7 @@ const MainPage = () => {
         }
       });
 
-      // update value for the possibility use this fn next time
+      // update value for the possibility use this Fn next time
       await setTimeout(() => {
         preventManyTimeCallLocationFn = 0;
       }, 0);
