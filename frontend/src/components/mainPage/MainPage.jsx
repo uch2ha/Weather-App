@@ -7,8 +7,9 @@ import './MainPage.css';
 const MainPage = () => {
   const [weatherData, setWeatherData] = useState([]);
   const [cityName, setCityName] = useState('');
-  const [otherError, setOtherError] = useState(false);
-  const [duplicateCitiesError, setDuplicateCitiesError] = useState(false);
+  const [otherError, setOtherError] = useState(true);
+  const [duplicateCitiesError, setDuplicateCitiesError] = useState(true);
+  let preventManyTimeCallLocationFn = 0; // don't let u call fn "setCityWeatherDataByCityLocation()" more than 1 time per fetch
 
   // fetch weather data from backend by city name
   const getWeatherDataFromAPIbyCityname = (city) => {
@@ -72,18 +73,29 @@ const MainPage = () => {
   // trying to add new data by city location
   // if it is not already present in the weather data
   const setCityWeatherDataByCityLocation = () => {
+    preventManyTimeCallLocationFn += 1;
+
+    // don't let u call fn "setCityWeatherDataByCityLocation()" more than 1 time per fetch
+    if (preventManyTimeCallLocationFn !== 1) {
+      return;
+    }
     // get my geolocation
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
       const lon = position.coords.longitude;
       const lat = position.coords.latitude;
 
       // fetch weather data from API and add it to the weather data
       // if it is not already present in the weather data
-      getWeatherDataFromAPIbyLocation(lon, lat).then((cityData) => {
+      await getWeatherDataFromAPIbyLocation(lon, lat).then((cityData) => {
         if (!checkWeatherDataAboutCityDuplicates(cityData.name)) {
           addCityInfoToWeatherData(cityData);
         }
       });
+
+      // update value for the possibility use this fn next time
+      await setTimeout(() => {
+        preventManyTimeCallLocationFn = 0;
+      }, 0);
     });
   };
 
