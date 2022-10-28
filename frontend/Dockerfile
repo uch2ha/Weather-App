@@ -10,8 +10,6 @@ RUN npm install
 
 EXPOSE 8000
 
-# CMD ["npm", "run", "start"]
+CMD ["npm", "run", "start"]
 
-# for hot reload functionality 
-CMD bash -c "npm run dev" 
 
