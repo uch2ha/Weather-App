@@ -78,8 +78,6 @@ describe('Test', () => {
           res.body.weather[0].should.have.property('id');
           res.body.weather[0].should.have.property('main');
           res.body.weather[0].should.have.property('description');
-          res.body.coord.should.have.property('lon').eq(lon);
-          res.body.coord.should.have.property('lat').eq(lat);
           done();
         });
     });
