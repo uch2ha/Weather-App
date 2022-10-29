@@ -13,9 +13,9 @@ const MainPage = () => {
   let preventManyTimeCallLocationFn = 0; // don't let u call fn "setCityWeatherDataByCityLocation()" more than 1 time per fetch
 
   // LocalStorage functionality
-  // when u load the page the first time, check local storage  for saved items
+  // when u load the page the first time, check local storage for saved items
   useEffect(() => {
-    console.log(1, 'get');
+    console.log(1, 'get'); // !
     if (firstLoad) {
       const item = localStorage.getItem('weather_data_ds_eficode');
       if (item !== undefined) {
@@ -25,7 +25,7 @@ const MainPage = () => {
     }
   }, []);
 
-  // every time when an item is removed or added to weatherData, updates local storage
+  // every time (but not in the first load) when an item is removed or added to weatherData, updates local storage
   useEffect(() => {
     if (!firstLoad) {
       localStorage.setItem(
