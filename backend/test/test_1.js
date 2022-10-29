@@ -3,7 +3,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 const port = process.env.PORT || 9000;
 
-//! start server
+//! start server for testing
 import app from '../src/index.js';
 
 //Assertion Style
