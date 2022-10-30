@@ -10,13 +10,19 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
+    "test": "react-scripts test --watchAll=false",
+    "startAndTests": "npm test & npm start",
     "lint": "node_modules/.bin/eslint --ext .js --ext .jsx ."
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.6.0",
-    "react-native-geolocation-service": "^5.2.0"
+    "react-native-geolocation-service": "^5.2.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
@@ -37,5 +43,8 @@
     "webpack": "^5.66.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.7.3"
+  },
+  "jest": {
+    "resetMocks": false
   }
 }

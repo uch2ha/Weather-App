@@ -10,6 +10,8 @@ RUN npm install
 
 EXPOSE 8000
 
-CMD ["npm", "run", "start"]
+# run tests and application everytime when container is loaded or started
+# CMD [ "npm", "run",  "startAndTests"]
+CMD [ "npm", "start"]
 
 
