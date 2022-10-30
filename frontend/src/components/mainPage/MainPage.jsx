@@ -15,7 +15,6 @@ const MainPage = () => {
   // LocalStorage functionality
   // when u load the page the first time, check local storage for saved items
   useEffect(() => {
-    console.log(1, 'get'); // !
     if (firstLoad) {
       const item = localStorage.getItem('weather_data_ds_eficode');
       if (item !== undefined) {
@@ -40,6 +39,12 @@ const MainPage = () => {
     return fetch(`http://localhost:9000/api/weatherbycity?city=${city}`)
       .then((response) => response.json())
       .then((responseData) => {
+        // if city noy found throw an error
+        if (Object.keys(responseData).length === 0) {
+          setOtherError(true);
+          setCityName('');
+          return false;
+        }
         setOtherError(false);
         return responseData;
       })
@@ -89,8 +94,10 @@ const MainPage = () => {
   const setCityWeatherDataByCityName = async (city) => {
     if (!checkWeatherDataAboutCityDuplicates(city)) {
       const cityData = await getWeatherDataFromAPIbyCityname(city);
-      await addCityInfoToWeatherData(cityData);
-      setCityName('');
+      if (cityData) {
+        await addCityInfoToWeatherData(cityData);
+        setCityName('');
+      }
     }
   };
 
