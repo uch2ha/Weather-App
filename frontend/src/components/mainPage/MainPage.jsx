@@ -48,7 +48,10 @@ const MainPage = () => {
         setOtherError(false);
         return responseData;
       })
-      .catch(() => setOtherError(true));
+      .catch(() => {
+        setCityName('');
+        setOtherError(true);
+      });
   };
 
   // fetch weather data from backend by location
@@ -162,6 +165,7 @@ const MainPage = () => {
           </button>
           <button
             className='btn-location'
+            data-testid='t_geolocation_btn'
             onClick={() => setCityWeatherDataByCityLocation()}
           >
             <MdMyLocation size={30} />

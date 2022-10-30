@@ -18,6 +18,7 @@ const CityCard = ({
     <div className='card-container'>
       {/* card flip container */}
       <div
+        data-testid='t_flipped_container'
         className={['flipped-container', isFrontSide ? 'front' : 'back'].join(
           ' '
         )}
@@ -76,7 +77,11 @@ const CityCard = ({
         </div>
       </div>
       {/* btn for delete the city */}
-      <button className='btn-delete' onClick={() => deleteCity(id)}>
+      <button
+        data-testid='t_btn_delete'
+        className='btn-delete'
+        onClick={() => deleteCity(id)}
+      >
         <div className='btn-div'>
           <MdClose color='white' />
         </div>
