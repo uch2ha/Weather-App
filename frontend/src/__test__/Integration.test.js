@@ -1,7 +1,10 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import MainPage from '../mainPage/MainPage';
+import MainPage from '../components/mainPage/MainPage';
 import '@testing-library/jest-dom';
 
+//! The fake data is slightly different from those received by API
+//? API: weather.description: 'few clouds' and name: 'helsinki'
+//? Fake Data: weather.description: 'Few Clouds' name: 'Helsinki'
 const fakeData = {
   coord: {
     lon: 24.9355,
