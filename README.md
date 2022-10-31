@@ -25,7 +25,7 @@ docker-compose up -d
 
 ### NPM
 
-1. You also can run the application manually via `npm`
+1. You can also run the application manually via `npm`
 
    Run this command in the terminal to be sure that you have an `npm` installed on your device
 
@@ -54,7 +54,7 @@ npm start
 
 ## Functionalities and Usage
 
-- Enter the city name to add it to the list of cities or click on location button to add city by your geolocation
+- Enter the city name to add it on the list of cities or click on location button to add city by your geolocation
 
 ![Main Page](screenshots/main_page.png)
 
@@ -64,11 +64,11 @@ npm start
 
 ![Main Page with cities](screenshots/main_page_with_cities.png)
 
-- If you click on the card, it will turn and you will see more information about city's weather
+- If you click on the card, it will turn around and you will see more information about city's weather
 
 ![Main Page with cities back side](screenshots/main_page_with_cities_back_side.png)
 
-- If you will try to add city that is already in the list or try to add a non-existent city, you will get an error message
+- If you will try to add city that is already on the list or try to add a non-existent city, you will get an error message
 
 ![Error 1](screenshots/main_page_city_error.png)
 
