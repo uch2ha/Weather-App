@@ -16,6 +16,10 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./frontend/
+    # volumes needed for hot reloading
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
     ports:
       - '8000:8000'
     environment:
