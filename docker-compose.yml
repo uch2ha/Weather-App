@@ -4,7 +4,7 @@ services:
   backend:
     build:
       dockerfile: Dockerfile
-      context: ./backend
+      context: ./backend/
     # run backend test everytime when container is loaded or started
     command: npm test
     ports:
@@ -15,7 +15,7 @@ services:
   frontend:
     build:
       dockerfile: Dockerfile
-      context: ./frontend
+      context: ./frontend/
     ports:
       - '8000:8000'
     environment:
