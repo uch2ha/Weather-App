@@ -56,35 +56,35 @@ npm start
 
 - Enter the city name to add it to the list of cities or click on location button to add city by your geolocation
 
-picture
+![Main Page](screenshots/main_page.png)
 
 - You can add infinite number of cities
 
 - Click "close button" on the bottom to delete city from the list
 
-picture
+![Main Page with cities](screenshots/main_page_with_cities.png)
 
 - If you click on the card, it will turn and you will see more information about city's weather
 
-picture
+![Main Page with cities back side](screenshots/main_page_with_cities_back_side.png)
 
 - If you will try to add city that is already in the list or try to add a non-existent city, you will get an error message
 
-picture
+![Error 1](screenshots/main_page_city_error.png)
 
-picture
+![Error 2](screenshots/main_page_city_connection_error.png)
 
-- All cities are stored in browser's local storage, if you will refresh the page all cities will reappear
+- All cities are stored in browser's `local storage`, if you will refresh the page all cities will reappear
 
--more?
+- React application support `hot reload`, every time you update/change a react component, all changes will appear in the browser (with slight delay +-2 sec)
 
 ## Testing
 
-- When you run an application via `Docker`, every time at container load or start-up back- and frontend tests will run automatically
+- When you run an application via `Docker`, every time at container load or start-up `backend` and `frontend` tests will run automatically
 
-picture
+![Test backend 1](screenshots/back_end_test.png)
 
-picture
+![Test frontend 1](screenshots/front_end_test.png)
 
 - If you want to run test manually, open folder `./backend` or `./frontend` and run this command in a terminal, in the root folder where the file `package.json` is located
 
@@ -92,9 +92,9 @@ picture
 npm test
 ```
 
-picture
+![Test backend 2](screenshots/back_end_test_2.png)
 
-picture
+![Test frontend 2](screenshots/front_end_test_2.png)
 
 ## Device support
 
@@ -102,6 +102,8 @@ picture
 
 - `Tablets`
 
-picture
+![Tablet](screenshots/tablet.png)
 
 - `Phones`
+
+![Phone](screenshots/phone.png)
