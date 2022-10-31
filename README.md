@@ -1,84 +1,77 @@
-# Weather app - Frontend developer challenge
+# Dmitry Sinyavskiy Weather App for Eficode
 
-There was a beautiful idea of building an app that would show the upcoming weather. The developers wrote a nice backend and a frontend following the latest principles and - to be honest - bells and whistles. However, the developers did not have time to finish the frontend. Your task is to continue where they left of or create your own frontend.
-
-## Prerequisites
-
--   Dockr-er and dockecompose installed on your machine
--   An openweathermap API key
-
-## Returning your solution
-
-1. Create a private GitHub or GitLab repository. DON’T make it public.
-2. Make changes, commit them, and push them to your own repository.
-3. Create a .zip -package including the .git-directory, but excluding the node_modules-directories.
-4. Send us the archive.
-
-## Exercises
-
-Before starting you need to get yourself an API key (by default you should set it in docker-compose.yml) to make queries in the openweathermap. You can run the app locally using npm i && npm start.
+## Installation
 
 ### Docker
 
-_Docker containers are central to any modern development initiative. By knowing how to set up your application into containers and make them interact with each other, you have learned a highly useful skill._
+1. Download and install docker app from official website
 
--   Add **Dockerfile**'s in the _frontend_ and the _backend_ directories to run them virtually on any environment having [docker](https://www.docker.com/) installed. It should work by saying e.g. `docker build -t weatherapp_backend . && docker run --rm -i -p 9000:9000 --name weatherapp_backend -t weatherapp_backend`. If it doesn't, remember to check your api key first.
+```sh
+https://docs.docker.com/get-docker/
+```
 
--   Add a **docker-compose.yml** -file connecting the frontend and the backend, enabling running the app in a connected set of containers.
+2. Clone or download the zip of the project from git (unzip if needed)
 
--   The developers are still keen to run the app and its pipeline on their own computers. Share the development files for the container by using volumes, and make sure the containers are started with a command enabling hot reload.
+3. Run this command in a terminal, in the root folder where the file docker-compose.yml is located
 
-## How to run backend and demo frontend
+```sh
+docker-compose up -d
+```
 
-1. Go and get API key from openweathermap.org
-2. Open docker-compose.yml file and replace APPID variable value with your API key
-3. Run command line command `docker-compose up -d`
-4. The service is now up and running!
-    - Backend is now running in http://localhost:9000
-    - And demo frontend in http://localhost:8000
+4. When all packages are downloaded and installed, the application will run on the ports:
 
-### Choosing the frontend framework
+   - `Backend` http://localhost:9000
+   - `Frontend` http://localhost:8000
 
-One of the first decisions you have to make is to choose a frontend framework to
-redesign the frontend. The goal is to build a new, modern, fast and reliable frontend
-app to serve all of our current and future users.
-Popular choices are:
+### NPM
 
--   React
--   Vue
--   Angular
--   Some other framework of you preference
+1. You also can run the application manually via npm package.
 
-Note that you can delete the existing demo frontend made with React if you choose
-to implement your application with Vue, Angular or something totally different. Be
-sure to include clear instructions on how to run your application. Sticking to
-docker-compose is highly advisable.
+   Run this command in the terminal to be sure that you have an npm installed on your device
 
-### Frontend feature wishlist
+```sh
+npm -v
+```
 
-The application should display the current weather as an icon as well as current temperature, humidity and air pressure
+2. Now you need to install npm packages for the project
 
--   It should probably report the forecast e.g. a few hours from now. (tip: eropenweathmap api and existing methods in the backend)
--   The demo frontend app currently reports the weather only for Helsinki. Shouldn't it check the browser location and use that as the reference for
-    making a forecast? (tip: geolocation)
--   Think of UI and UX. How could our service stand out from the vast amount of other weather service sites and, at the same time, be as user-friendly and
-    intuitive as possible?
+   Run this command in the ./frontend and ./backend folders
 
-### Testing
+```sh
+npm install
+```
 
-Test automation is key in developing good quality applications. Finding bugs in early
-stages of development is valuable in any software development project. With Robot
-Framework you can create integration tests that also serve as feature descriptions,
-making them exceptionally useful.
+3. When all is done you can run the application by this command. Do it in different terminals
 
--   Create automated tests for the application. (tip: mocha)
--   Create Robot Framework integration tests. Hint: Start by creating a third
-    container that gives expected weather data and direct the backend queries
-    there by redefining the MAP_ENDPOINT.
+```sh
+npm start
+```
 
-### Documentation
+4. Application will run on the ports:
 
-Good documentation benefits everyone.
+   - `Backend` http://localhost:9000
+   - `Frontend` http://localhost:8000
 
--   Remember to update the README
--   Use descriptive names and add comments in the code when necessary
+## Functionalities and Usage
+
+- Enter the city name to add it to the list of cities or click on location button to add city by your location
+
+picture
+
+- You can add infinite number of cities
+
+- Click "close button" on the bottom the to delete city from the list
+
+- If you click on the card, it will turn and you will see more information about city's weather
+
+picture
+
+- If you will try to add a city that is already on the list or try to add a non-existent city, you will get an error message
+
+picture
+
+picture
+
+- All cities are stored in browser's local storage, if you will refresh the page all not deleted cities will reappear
+
+## Testing
