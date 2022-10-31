@@ -16,7 +16,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./frontend/
-    # volumes needed for hot reloading
+    # volumes needed for hot reloading functionality
     volumes:
       - /app/node_modules
       - ./frontend:/app
