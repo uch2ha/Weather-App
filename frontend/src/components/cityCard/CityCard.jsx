@@ -24,7 +24,12 @@ const CityCard = ({
         )}
         onClick={() => setIsFrontSide((prev) => !prev)}
       >
-        <div className='city-name'>
+        <div
+          //if city name length is more than 9 make it smaller font-size
+          className={['city-name', city.length >= 9 ? 'long-name' : ''].join(
+            ' '
+          )}
+        >
           <p>{city}</p>
         </div>
         <div className='info-container'>
