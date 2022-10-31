@@ -13,6 +13,5 @@ EXPOSE 8000
 # # run tests and application everytime when container is loaded or started
 CMD [ "npm", "run", "startAndTests"]
 
-# for hot reload functionality 
-# CMD  ["npm", "run", "start"]
+
 
