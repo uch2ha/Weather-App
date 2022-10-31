@@ -98,7 +98,7 @@ npm test
 
 ## Device support
 
-    The application also available for mobile devices
+- The application also available for mobile devices
 
 - `Tablets`
 
