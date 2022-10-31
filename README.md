@@ -4,15 +4,15 @@
 
 ### Docker
 
-1. Download and install docker app from official website
+1. Download and install `Docker` app from official website
 
 ```sh
 https://docs.docker.com/get-docker/
 ```
 
-2. Clone or download the zip of the project from git (unzip if needed)
+2. Clone project or download the zip from git (unzip if needed)
 
-3. Run this command in a terminal, in the root folder where the file docker-compose.yml is located
+3. Run this command in a terminal, in the root folder where the file `docker-compose.yml` is located
 
 ```sh
 docker-compose up -d
@@ -25,23 +25,23 @@ docker-compose up -d
 
 ### NPM
 
-1. You also can run the application manually via npm package.
+1. You also can run the application manually via `npm`
 
-   Run this command in the terminal to be sure that you have an npm installed on your device
+   Run this command in the terminal to be sure that you have an `npm` installed on your device
 
 ```sh
 npm -v
 ```
 
-2. Now you need to install npm packages for the project
+2. Now you need to install `npm` packages for the project
 
-   Run this command in the ./frontend and ./backend folders
+   Run this command in the `./frontend` and `./backend` folders
 
 ```sh
 npm install
 ```
 
-3. When all is done you can run the application by this command. Do it in different terminals
+3. When all is done you can run the application with running this command. Do it in different terminals
 
 ```sh
 npm start
@@ -54,24 +54,54 @@ npm start
 
 ## Functionalities and Usage
 
-- Enter the city name to add it to the list of cities or click on location button to add city by your location
+- Enter the city name to add it to the list of cities or click on location button to add city by your geolocation
 
 picture
 
 - You can add infinite number of cities
 
-- Click "close button" on the bottom the to delete city from the list
+- Click "close button" on the bottom to delete city from the list
+
+picture
 
 - If you click on the card, it will turn and you will see more information about city's weather
 
 picture
 
-- If you will try to add a city that is already on the list or try to add a non-existent city, you will get an error message
+- If you will try to add city that is already in the list or try to add a non-existent city, you will get an error message
 
 picture
 
 picture
 
-- All cities are stored in browser's local storage, if you will refresh the page all not deleted cities will reappear
+- All cities are stored in browser's local storage, if you will refresh the page all cities will reappear
+
+-more?
 
 ## Testing
+
+- When you run an application via `Docker`, every time at container load or start-up back- and frontend tests will run automatically
+
+picture
+
+picture
+
+- If you want to run test manually, open folder `./backend` or `./frontend` and run this command in a terminal, in the root folder where the file `package.json` is located
+
+```sh
+npm test
+```
+
+picture
+
+picture
+
+## Device support
+
+    The application also available for mobile devices
+
+- `Tablets`
+
+picture
+
+- `Phones`
