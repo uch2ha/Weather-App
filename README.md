@@ -1,4 +1,4 @@
-# Dmitry Sinyavskiy Weather App for Eficode
+# Dmitry Sinyavskiy Weather App
 
 ## Installation
 
