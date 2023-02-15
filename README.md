@@ -1,4 +1,4 @@
-# Dmitry Sinyavskiy Weather App
+# Dmitry Sinyavskiy Weather App - Interview Assignment
 
 ## Installation
 
