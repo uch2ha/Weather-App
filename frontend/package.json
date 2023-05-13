@@ -12,7 +12,8 @@
     "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
     "test": "react-scripts test --watchAll=false",
     "startAndTests": "npm test & npm start",
-    "lint": "node_modules/.bin/eslint --ext .js --ext .jsx ."
+    "lint": "node_modules/.bin/eslint --ext .js --ext .jsx .",
+    "build": "node_modules/.bin/webpack --config webpack.config.js"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
