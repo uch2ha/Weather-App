@@ -1,4 +1,6 @@
-# Dmitry Sinyavskiy Weather App - Interview Assignment
+# Weather App
+
+The Weather App is a full-stack application developed to display weather information sourced from an API. It was created with the aim of gaining valuable experience in React and Node.js development, specifically focusing on building a full-stack application. Through this project, I had the opportunity to practice test-driven development, responsible UI design, and gain a deeper understanding of Docker and Docker Compose for containerization. The Weather App has significantly contributed to enhancing my skills in full-stack development.
 
 ## Installation
 
