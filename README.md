@@ -72,7 +72,7 @@ npm start
 
 - If you will try to add city that is already on the list or try to add a non-existent city, you will get an error message
 
-![Error 1](screenshots/main_page_city_error.png)
+![Error 1.1](screenshots/main_page_city_error.png)
 
 ![Error 2](screenshots/main_page_city_connection_error.png)
 
